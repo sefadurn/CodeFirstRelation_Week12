@@ -31,3 +31,7 @@ Bu proje, **Entity Framework Core Code First** yaklaşımı ile ilişkisel verit
 1. Migration oluşturma:  
    ```bash
    dotnet ef migrations add InitialCreate
+
+2. Update yapma:
+   ```bash
+   dotnet ef database update
