@@ -1,40 +1,33 @@
-CodeFirstRelation Week12
-🎯 Amaç
+# 📘 CodeFirstRelation Week12
 
-Bu proje, Entity Framework Core Code First yaklaşımı ile ilişkisel veritabanı modellemesini göstermektedir.
-Örnekte User ve Post tabloları arasında 1 -> N (bir kullanıcının birden çok postu olabilir) ilişkisi kurulmuştur.
+--  
 
-📂 Proje Yapısı
+## 🎯 Amaç  
+Bu proje, **Entity Framework Core Code First** yaklaşımı ile ilişkisel veritabanı modellemesini göstermektedir.  
+Örnekte **User** ve **Post** tabloları arasında **1 → N (bir kullanıcının birden çok postu olabilir)** ilişkisi kurulmuştur.  
 
-Context/
+--  
 
-PatikaSecondDbContext.cs → Veritabanı bağlantısı ve DbSet tanımları
+## 📂 Proje Yapısı  
+📁 **Context/**  
+- PatikaSecondDbContext.cs → Veritabanı bağlantısı ve DbSet tanımları  
 
-Entities/
+📁 **Entities/**  
+- UserEntity.cs → Kullanıcı tablosunu temsil eder  
+- PostEntity.cs → Post tablosunu temsil eder  
 
-UserEntity.cs → Kullanıcı tablosunu temsil eder
+--  
 
-PostEntity.cs → Post tablosunu temsil eder
+## 🏗️ İlişkiler  
+- **UserEntity → PostEntity**  
+  - Bir kullanıcı birden fazla post paylaşabilir (**1 → N ilişki**)  
+  - UserEntity.Posts → Navigation property  
+  - PostEntity.User → Navigation property  
+  - PostEntity.UserId → Foreign Key  
 
-🏗️ İlişkiler
+--  
 
-UserEntity → PostEntity
-
-Bir kullanıcı birden fazla post paylaşabilir (1 -> N ilişki).
-
-UserEntity.Posts → Navigation property
-
-PostEntity.User → Navigation property
-
-PostEntity.UserId → Foreign Key
-
-🚀 Migration ve Veritabanı Güncelleme
-
-Migration oluşturma:
-
-dotnet ef migrations add InitialCreate
-
-
-Veritabanı güncelleme:
-
-dotnet ef database update
+## 🚀 Migration ve Veritabanı Güncelleme  
+1. Migration oluşturma:  
+   ```bash
+   dotnet ef migrations add InitialCreate
